@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: parcial1-patrones-arquitectonicos-avanzados
-        image: registry.digitalocean.com/patrones/monolito-inventario:1.0.4
+        image: juangomeper/monolito-inventario:latest
         ports:
         - containerPort: 3000
         resources:
