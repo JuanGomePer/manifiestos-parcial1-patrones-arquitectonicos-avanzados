@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: patrones
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/JuanGomePer/manifiestos-parcial1-patrones-arquitectonicos-avanzados.git
+    targetRevision: main
+    path: charts/patrones
+    helm:
+      valueFiles: [values.yaml]
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

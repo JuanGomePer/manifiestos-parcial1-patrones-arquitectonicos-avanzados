@@ -1,18 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: patrones
+  name: {{ .Chart.Name }}
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
-  ingressClassName: nginx
+  ingressClassName: {{ .Values.ingress.className }}
   rules:
   - http:
       paths:
-      - path: /patrones(/|$)(.*)
+      - path: {{ .Values.ingress.path }}
         pathType: ImplementationSpecific
         backend:
           service:
-            name: parcial1-patrones-arquitectonicos-avanzados
+            name: {{ .Chart.Name }}
             port:
-              number: 80
+              number: {{ .Values.service.port }}
