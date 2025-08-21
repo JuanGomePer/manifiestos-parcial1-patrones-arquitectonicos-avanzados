@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: juangomeper/monolito-inventario
-  tag: "1.0.2"
+  tag: "1.0.6-a5dad6f"
   pullPolicy: IfNotPresent
 
 service:
