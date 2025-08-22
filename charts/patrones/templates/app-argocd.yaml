@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: patrones      
+  name: patrones
   namespace: argocd
 spec:
   project: default
@@ -11,10 +11,11 @@ spec:
   source:
     repoURL: https://juangomeper.github.io/helm-chart/
     chart: patrones
-    targetRevision: {{ .Chart.Version }} 
+    targetRevision: "*"  
     helm:
       valueFiles:
         - values.yaml
+      parameters: []  
   syncPolicy:
     automated:
       prune: true
