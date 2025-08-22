@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://juangomeper.github.io/helm-chart/
     chart: patrones
-    targetRevision: '*'
+    targetRevision: "*"
     helm:
       valueFiles:
         - values.yaml
