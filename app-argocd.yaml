@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://juangomeper.github.io/helm-chart/
     chart: patrones
-    targetRevision: 0.1.0
+    targetRevision: '*'
     helm:
       valueFiles:
         - values.yaml
@@ -26,3 +26,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
