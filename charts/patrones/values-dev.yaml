@@ -1,32 +1,31 @@
-replicaCount: 2
+replicaCount: 1
 image:
   repository: juangomeper/monolito-inventario
-  tag: "latest"
+  tag: "1.0.41-dev"   
   pullPolicy: IfNotPresent
 service:
   port: 80
   targetPort: 3000
 resources:
   requests:
-    memory: "512Mi"
-    cpu: "100m"
+    memory: "256Mi"
+    cpu: "50m"
   limits:
-    memory: "1Gi"
-    cpu: "400m"
+    memory: "512Mi"
+    cpu: "200m"
 ingress:
   enabled: true
   className: nginx
-  path: /patrones(/|$)(.*)
+  path: /patrones-dev(/|$)(.*)   
 postgres:
   image: postgres:15
-  storage: 1Gi
+  storage: 512Mi
   user: postgres
   password: ArrozConMollejas
-  db: pedidosdb
+  db: pedidosdb_dev   
   port: 5432
 hpa:
   enabled: true
-  minReplicas: 2
-  maxReplicas: 6
-  targetCPUUtilizationPercentage: 85
-
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 60
